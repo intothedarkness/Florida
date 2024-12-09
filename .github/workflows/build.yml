@@ -24,9 +24,10 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const releaseResponse = await github.repos.getLatestRelease({
+            const releaseResponse = await github.repos.getReleaseByTag({
               owner: 'frida',
               repo: 'frida',
+              tag: '16.3.0',
             })
             const {
               data: { tag_name: ver }
